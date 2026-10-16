@@ -1,0 +1,13 @@
+{
+  "name": "stretch-arena",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Stretch-arm arcade fighter",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node arena-server.cjs",
+    "test": "node tests/engine.cjs && node tests/terrain.cjs"
+  }
+}

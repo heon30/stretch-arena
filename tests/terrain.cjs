@@ -1,0 +1,3 @@
+const assert=require('node:assert/strict'),E=require('../src/engine.cjs');
+for(let map=0;map<3;map++){for(const p of E.MAPS[map].platforms){const g=E.create([0,1],map),f=g.fighters[0];f.x=p.x+p.w/2;f.y=p.y-10;f.vy=120;for(let i=0;i<10;i++)E.step(g,[{},{}]);assert.equal(f.y,p.y,'land on platform');assert(f.grounded);E.step(g,[{jump:true},{}]);assert(f.y<p.y&&f.vy<0,'jump from platform');f.x=p.x-25;f.y=p.y;f.vy=0;E.step(g,[{},{}]);assert(f.y>p.y,'fall from edge');f.x=p.x+p.w/2;f.y=p.y+6;f.vy=-200;E.step(g,[{},{}]);assert(f.y<p.y+6&&f.vy<0,'pass through from below')}}
+console.log('PASS: all platforms across three maps: landing, platform jump, edge fall, one-way upward passage');
