@@ -1,3 +1,4 @@
+const fs=require('node:fs'),path=require('node:path');const inline=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8').match(/<script id="netcode">([\s\S]*?)<\/script>/)[1];if(inline.replace(/\r\n/g,'\n')!==fs.readFileSync(path.join(__dirname,'../src/netcode.cjs'),'utf8').replace(/\r\n/g,'\n'))throw Error('Inline and test netcode differ');
 const assert=require('node:assert/strict'),E=require('../src/engine.cjs'),{create}=require('../src/netcode.cjs');
 const g=E.create([0,1]),p=create(E);p.receive(g,0,0,0,180);let sent=[];
 p.advance(E.STEP,0,()=>({move:1,jump:true,attack:true}),h=>sent.push(h),16);
