@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "node arena-server.cjs",
-    "test": "node tests/engine.cjs && node tests/terrain.cjs && node tests/survival.cjs && node tests/ranking.cjs && node tests/netcode.cjs"
+    "test": "node tests/engine.cjs && node tests/terrain.cjs && node tests/survival.cjs && node tests/ranking.cjs && node tests/netcode.cjs && node tests/countdown.cjs"
   }
 }
